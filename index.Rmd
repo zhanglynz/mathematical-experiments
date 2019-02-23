@@ -27,4 +27,79 @@ R code will be self-explanatory by using meaningful variable names plus comments
 
 # Discover Pi
 
+## Introduction
+
+$\pi$, with its value being equal to $3.1415926...$, is a very important number in mathematics, physics, engineering and so on so on. Have you ever wondered how human beings discovered $\pi$? Either you answer "Yes" or "No" to this question, it is a good idea to have a look at [this article](https://en.wikipedia.org/wiki/Pi) on the Wikipedia web site.
+
+$\pi$ is related to circles. To be exact, if a circle has radius $r$, circumference $C$ and area $A$, then
+\begin{equation}
+\frac{C}{2r} = \pi, (\#eq:c-r-eq)
+\end{equation}
+and
+\begin{equation}
+\frac{A}{r^2}=\pi. (\#eq:A-r2-eq)
+\end{equation}
+The interpretation of \@ref(eq:c-r-eq) is that the ratio of half of $C$ to $r$ is $\pi$; the interpretation of \@ref(eq:A-r2-eq) is that the ratio of $A$ to $r^2$ is $\pi$.
+
+To prove \@ref(eq:c-r-eq) and \@ref(eq:A-r2-eq), we can follow the two steps.
+
+**Step 1**: For any two circles, say circle 1 and circle 2, we show
+    $$
+    \frac{C_1}{2r_1}=\frac{C_2}{2r_2}\ (\hbox{equivalently,}\ \frac{C_1}{C_2}=\frac{r_1}{r_2}),
+    $$
+    and
+    $$
+    \frac{A_1}{r_1^2}=\frac{A_2}{r_2^2}\ (\hbox{equivalently,}\ \frac{A_1}{A_2}=\frac{r_1^2}{r_2^2}),
+    $$
+    where $C$ and $A$ and $r$ are circumference, area and radius, respectively, with a subscript 1 or 2 indicating for which circle.
+    
+**Step 2**: Take a circle and find what $C/(2r)$ is and what $A/r^2$ is.
+
+For **Step 1**, we can divide the two circles into small equal slices; see Figure \@ref(fig:fig1).
+```{r, fig1, echo=FALSE, fig.align = 'center', fig.cap="An illustration, where the smaller circle is circle 1 and the other is circle 2."}
+knitr::include_graphics("figures/two-circles.png")
+```
+It is clear, from Figure \@ref(fig:fig1), that
+\begin{equation}
+\frac{C_1}{C_2}=\frac{\overset{\frown}{AB}}{\overset{\frown}{CD}}\approx \frac{AB}{CD}=\frac{r_1}{r_2}. (\#eq:ratio-eq)
+\end{equation}
+Equation \@ref(eq:ratio-eq) is almost what we want except the "$\approx$"---which says approximately $\overset{\frown}{AB}/\overset{\frown}{CD}$ is the same as $AB/CD$. Don't worry! We can think in this way: If there are many many (as many as you can image) small slices, then indeed there will be no difference between $\overset{\frown}{AB}$ and $AB$ and there will be no difference between $\overset{\frown}{CD}$ and $CD$, thus
+$$
+\frac{\overset{\frown}{AB}}{\overset{\frown}{CD}}=\frac{AB}{CD}.
+$$
+At this point, we have proved that
+$$
+\frac{C_1}{C_2}=\frac{r_1}{r_2}.
+$$
+In a similar manner, we can prove
+$$
+\frac{A_1}{A_2}=\frac{r_1^2}{r_2^2}
+$$
+as well.
+
+**Step 2** is more tricky, however, we  can simply do measurement: we measure the polygon (Figure \@ref(fig:fig2)), its circumference and area, and these two numbers can approximate the circumference and area of the circle, respectively, if the number of polygon sides is getting huge. We implement the above ideas in the R code below. 
+```{r, fig2, echo=FALSE, fig.align = 'center', fig.cap="An illustration: using a polygon to approximate a circle."}
+knitr::include_graphics("figures/polygon-circle.png")
+```
+
+
+## Mathematical formulas 
+
+We will use the following mathematical formulas in the R code.
+
+- The coordinates for point $P_1$ is $(x_1, y_1)$ and the coordinates for point $P_2$ is $(x_2, y_2)$. The distance between $P_1$ and $P_2$ is
+$$
+d=\sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}.
+$$
+
+- **Heron's formula**. The area of a triangle is
+$$
+Area = \sqrt{s(s-a)(s-b)(s-c)},
+$$
+where $a,\ b,\ c$ are the lengths of the triangle sides and $s=(a+b+c)/2.$
+
+## R code
+
+```{r, code=readLines("./R/discover_pi.R"), eval=TRUE}
+```
 

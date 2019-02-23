@@ -49,6 +49,43 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 </head>
 
@@ -63,7 +100,11 @@
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="discover-pi.html"><a href="discover-pi.html"><i class="fa fa-check"></i><b>1</b> Discover Pi</a></li>
+<li class="chapter" data-level="1" data-path="discover-pi.html"><a href="discover-pi.html"><i class="fa fa-check"></i><b>1</b> Discover Pi</a><ul>
+<li class="chapter" data-level="1.1" data-path="discover-pi.html"><a href="discover-pi.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="discover-pi.html"><a href="discover-pi.html#mathematical-formulas"><i class="fa fa-check"></i><b>1.2</b> Mathematical formulas</a></li>
+<li class="chapter" data-level="1.3" data-path="discover-pi.html"><a href="discover-pi.html#r-code"><i class="fa fa-check"></i><b>1.3</b> R code</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -83,7 +124,87 @@
             <section class="normal" id="section-">
 <div id="discover-pi" class="section level1">
 <h1><span class="header-section-number">1</span> Discover Pi</h1>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">1.1</span> Introduction</h2>
+<p><span class="math inline">\(\pi\)</span>, with its value being equal to <span class="math inline">\(3.1415926...\)</span>, is a very important number in mathematics, physics, engineering and so on so on. Have you ever wondered how human beings discovered <span class="math inline">\(\pi\)</span>? Either you answer “Yes” or “No” to this question, it is a good idea to have a look at <a href="https://en.wikipedia.org/wiki/Pi">this article</a> on the Wikipedia web site.</p>
+<span class="math inline">\(\pi\)</span> is related to circles. To be exact, if a circle has radius <span class="math inline">\(r\)</span>, circumference <span class="math inline">\(C\)</span> and area <span class="math inline">\(A\)</span>, then
+<span class="math display" id="eq:c-r-eq">\[\begin{equation}
+\frac{C}{2r} = \pi, \tag{1.1}
+\end{equation}\]</span>
+and
+<span class="math display" id="eq:A-r2-eq">\[\begin{equation}
+\frac{A}{r^2}=\pi. \tag{1.2}
+\end{equation}\]</span>
+<p>The interpretation of <a href="discover-pi.html#eq:c-r-eq">(1.1)</a> is that the ratio of half of <span class="math inline">\(C\)</span> to <span class="math inline">\(r\)</span> is <span class="math inline">\(\pi\)</span>; the interpretation of <a href="discover-pi.html#eq:A-r2-eq">(1.2)</a> is that the ratio of <span class="math inline">\(A\)</span> to <span class="math inline">\(r^2\)</span> is <span class="math inline">\(\pi\)</span>.</p>
+<p>To prove <a href="discover-pi.html#eq:c-r-eq">(1.1)</a> and <a href="discover-pi.html#eq:A-r2-eq">(1.2)</a>, we can follow the two steps.</p>
+<p><strong>Step 1</strong>: For any two circles, say circle 1 and circle 2, we show <span class="math display">\[
+    \frac{C_1}{2r_1}=\frac{C_2}{2r_2}\ (\hbox{equivalently,}\ \frac{C_1}{C_2}=\frac{r_1}{r_2}),
+    \]</span> and <span class="math display">\[
+    \frac{A_1}{r_1^2}=\frac{A_2}{r_2^2}\ (\hbox{equivalently,}\ \frac{A_1}{A_2}=\frac{r_1^2}{r_2^2}),
+    \]</span> where <span class="math inline">\(C\)</span> and <span class="math inline">\(A\)</span> and <span class="math inline">\(r\)</span> are circumference, area and radius, respectively, with a subscript 1 or 2 indicating for which circle.</p>
+<p><strong>Step 2</strong>: Take a circle and find what <span class="math inline">\(C/(2r)\)</span> is and what <span class="math inline">\(A/r^2\)</span> is.</p>
+For <strong>Step 1</strong>, we can divide the two circles into small equal slices; see Figure <a href="discover-pi.html#fig:fig1">1.1</a>.
+<div class="figure" style="text-align: center"><span id="fig:fig1"></span>
+<img src="figures/two-circles.png" alt="An illustration, where the smaller circle is circle 1 and the other is circle 2."  />
+<p class="caption">
+Figure 1.1: An illustration, where the smaller circle is circle 1 and the other is circle 2.
+</p>
+</div>
+It is clear, from Figure <a href="discover-pi.html#fig:fig1">1.1</a>, that
+<span class="math display" id="eq:ratio-eq">\[\begin{equation}
+\frac{C_1}{C_2}=\frac{\overset{\frown}{AB}}{\overset{\frown}{CD}}\approx \frac{AB}{CD}=\frac{r_1}{r_2}. \tag{1.3}
+\end{equation}\]</span>
+<p>Equation <a href="discover-pi.html#eq:ratio-eq">(1.3)</a> is almost what we want except the “<span class="math inline">\(\approx\)</span>”—which says approximately <span class="math inline">\(\overset{\frown}{AB}/\overset{\frown}{CD}\)</span> is the same as <span class="math inline">\(AB/CD\)</span>. Don’t worry! We can think in this way: If there are many many (as many as you can image) small slices, then indeed there will be no difference between <span class="math inline">\(\overset{\frown}{AB}\)</span> and <span class="math inline">\(AB\)</span> and there will be no difference between <span class="math inline">\(\overset{\frown}{CD}\)</span> and <span class="math inline">\(CD\)</span>, thus <span class="math display">\[
+\frac{\overset{\frown}{AB}}{\overset{\frown}{CD}}=\frac{AB}{CD}.
+\]</span> At this point, we have proved that <span class="math display">\[
+\frac{C_1}{C_2}=\frac{r_1}{r_2}.
+\]</span> In a similar manner, we can prove <span class="math display">\[
+\frac{A_1}{A_2}=\frac{r_1^2}{r_2^2}
+\]</span> as well.</p>
+<strong>Step 2</strong> is more tricky, however, we can simply do measurement: we measure the polygon (Figure <a href="discover-pi.html#fig:fig2">1.2</a>), its circumference and area, and these two numbers can approximate the circumference and area of the circle, respectively, if the number of polygon sides is getting huge. We implement the above ideas in the R code below.
+<div class="figure" style="text-align: center"><span id="fig:fig2"></span>
+<img src="figures/polygon-circle.png" alt="An illustration: using a polygon to approximate a circle."  />
+<p class="caption">
+Figure 1.2: An illustration: using a polygon to approximate a circle.
+</p>
+</div>
+</div>
+<div id="mathematical-formulas" class="section level2">
+<h2><span class="header-section-number">1.2</span> Mathematical formulas</h2>
+<p>We will use the following mathematical formulas in the R code.</p>
+<ul>
+<li><p>The coordinates for point <span class="math inline">\(P_1\)</span> is <span class="math inline">\((x_1, y_1)\)</span> and the coordinates for point <span class="math inline">\(P_2\)</span> is <span class="math inline">\((x_2, y_2)\)</span>. The distance between <span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> is <span class="math display">\[
+d=\sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}.
+\]</span></p></li>
+<li><p><strong>Heron’s formula</strong>. The area of a triangle is <span class="math display">\[
+Area = \sqrt{s(s-a)(s-b)(s-c)},
+\]</span> where <span class="math inline">\(a,\ b,\ c\)</span> are the lengths of the triangle sides and <span class="math inline">\(s=(a+b+c)/2.\)</span></p></li>
+</ul>
+</div>
+<div id="r-code" class="section level2">
+<h2><span class="header-section-number">1.3</span> R code</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NO_of_points &lt;-<span class="st"> </span><span class="dv">10000</span> 
+r &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># radius of circle</span>
+x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span>r, r, <span class="dt">length.out =</span> NO_of_points) <span class="co"># x-coordinates</span>
+y &lt;-<span class="st"> </span><span class="kw">sqrt</span>(r<span class="op">**</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span>x<span class="op">**</span><span class="dv">2</span>) <span class="co"># y-coordinates</span>
 
+L &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># L is for the half of the circumference</span>
+A_half &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># A_half is for the half of the area</span>
+
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(x))
+{d &lt;-<span class="st"> </span><span class="kw">sqrt</span>((x[i] <span class="op">-</span><span class="st"> </span>x[i<span class="op">-</span><span class="dv">1</span>])<span class="op">**</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(y[i] <span class="op">-</span><span class="st"> </span>y[i<span class="op">-</span><span class="dv">1</span>])<span class="op">**</span><span class="dv">2</span> )
+ L &lt;-<span class="st"> </span>L <span class="op">+</span><span class="st"> </span>d
+ s &lt;-<span class="st"> </span>(d <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span>r) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>
+ <span class="co"># using Heron&#39;s formula</span>
+ A_half &lt;-<span class="st"> </span>A_half <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(s <span class="op">*</span><span class="st"> </span>(s <span class="op">-</span><span class="st"> </span>r) <span class="op">*</span><span class="st"> </span>(s <span class="op">-</span><span class="st"> </span>r) <span class="op">*</span><span class="st"> </span>(s <span class="op">-</span><span class="st"> </span>d)) 
+}
+
+(L<span class="op">/</span>r)</code></pre></div>
+<pre><code>## [1] 3.141592</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2</span><span class="op">*</span>A_half<span class="op">/</span>r<span class="op">**</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 3.141589</code></pre>
+
+</div>
 </div>
             </section>
 
@@ -132,6 +253,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
