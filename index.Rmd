@@ -43,7 +43,7 @@ The interpretation of \@ref(eq:c-r-eq) is that the ratio of half of $C$ to $r$ i
 
 To prove \@ref(eq:c-r-eq) and \@ref(eq:A-r2-eq), we can follow the two steps.
 
-**Step 1**: For any two circles, say circle 1 and circle 2, we show
+**Step 1**: For **any** two circles, say circle 1 and circle 2, we show
     $$
     \frac{C_1}{2r_1}=\frac{C_2}{2r_2}\ (\hbox{equivalently,}\ \frac{C_1}{C_2}=\frac{r_1}{r_2}),
     $$
@@ -85,7 +85,7 @@ knitr::include_graphics("figures/polygon-circle.png")
 
 ## Mathematical formulas 
 
-We will use the following mathematical formulas in the R code.
+We use the following mathematical formulas in the R code.
 
 - The coordinates for point $P_1$ is $(x_1, y_1)$ and the coordinates for point $P_2$ is $(x_2, y_2)$. The distance between $P_1$ and $P_2$ is
 $$

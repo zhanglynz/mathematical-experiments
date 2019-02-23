@@ -25,7 +25,7 @@
 <meta name="author" content="Lingyun Zhang">
 
 
-<meta name="date" content="2019-02-23">
+<meta name="date" content="2019-02-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -137,7 +137,7 @@ and
 \end{equation}\]</span>
 <p>The interpretation of <a href="discover-pi.html#eq:c-r-eq">(1.1)</a> is that the ratio of half of <span class="math inline">\(C\)</span> to <span class="math inline">\(r\)</span> is <span class="math inline">\(\pi\)</span>; the interpretation of <a href="discover-pi.html#eq:A-r2-eq">(1.2)</a> is that the ratio of <span class="math inline">\(A\)</span> to <span class="math inline">\(r^2\)</span> is <span class="math inline">\(\pi\)</span>.</p>
 <p>To prove <a href="discover-pi.html#eq:c-r-eq">(1.1)</a> and <a href="discover-pi.html#eq:A-r2-eq">(1.2)</a>, we can follow the two steps.</p>
-<p><strong>Step 1</strong>: For any two circles, say circle 1 and circle 2, we show <span class="math display">\[
+<p><strong>Step 1</strong>: For <strong>any</strong> two circles, say circle 1 and circle 2, we show <span class="math display">\[
     \frac{C_1}{2r_1}=\frac{C_2}{2r_2}\ (\hbox{equivalently,}\ \frac{C_1}{C_2}=\frac{r_1}{r_2}),
     \]</span> and <span class="math display">\[
     \frac{A_1}{r_1^2}=\frac{A_2}{r_2^2}\ (\hbox{equivalently,}\ \frac{A_1}{A_2}=\frac{r_1^2}{r_2^2}),
@@ -171,7 +171,7 @@ Figure 1.2: An illustration: using a polygon to approximate a circle.
 </div>
 <div id="mathematical-formulas" class="section level2">
 <h2><span class="header-section-number">1.2</span> Mathematical formulas</h2>
-<p>We will use the following mathematical formulas in the R code.</p>
+<p>We use the following mathematical formulas in the R code.</p>
 <ul>
 <li><p>The coordinates for point <span class="math inline">\(P_1\)</span> is <span class="math inline">\((x_1, y_1)\)</span> and the coordinates for point <span class="math inline">\(P_2\)</span> is <span class="math inline">\((x_2, y_2)\)</span>. The distance between <span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> is <span class="math display">\[
 d=\sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}.
@@ -192,7 +192,7 @@ L &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># L i
 A_half &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># A_half is for the half of the area</span>
 
 <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(x))
-{d &lt;-<span class="st"> </span><span class="kw">sqrt</span>((x[i] <span class="op">-</span><span class="st"> </span>x[i<span class="op">-</span><span class="dv">1</span>])<span class="op">**</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(y[i] <span class="op">-</span><span class="st"> </span>y[i<span class="op">-</span><span class="dv">1</span>])<span class="op">**</span><span class="dv">2</span> )
+{d &lt;-<span class="st"> </span><span class="kw">sqrt</span>((x[i] <span class="op">-</span><span class="st"> </span>x[i<span class="op">-</span><span class="dv">1</span>])<span class="op">**</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(y[i] <span class="op">-</span><span class="st"> </span>y[i<span class="op">-</span><span class="dv">1</span>])<span class="op">**</span><span class="dv">2</span> ) 
  L &lt;-<span class="st"> </span>L <span class="op">+</span><span class="st"> </span>d
  s &lt;-<span class="st"> </span>(d <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span>r) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>
  <span class="co"># using Heron&#39;s formula</span>
