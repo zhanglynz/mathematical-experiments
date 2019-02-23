@@ -1,0 +1,30 @@
+--- 
+title: "Twelve Mathematical Experiments With R"
+author: "Lingyun Zhang"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+link-citations: yes
+links-as-notes: true
+colorlinks: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Preface {-}
+
+From reading this book, I hope readers can have joys---the joys of mathematics and the joys of programming in R.
+
+prerequisite maths: mostly high school maths, some university maths
+
+maths formulas and explanations will be given
+
+R code will be self-explanatory by using meaningful variable names plus comments
+
+# Discover Pi
+
+
