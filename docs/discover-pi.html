@@ -25,7 +25,7 @@
 <meta name="author" content="Lingyun Zhang">
 
 
-<meta name="date" content="2019-02-24">
+<meta name="date" content="2019-03-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -161,7 +161,7 @@ It is clear, from Figure <a href="discover-pi.html#fig:fig1">1.1</a>, that
 \]</span> In a similar manner, we can prove <span class="math display">\[
 \frac{A_1}{A_2}=\frac{r_1^2}{r_2^2}
 \]</span> as well.</p>
-<strong>Step 2</strong> is more tricky, however, we can simply do measurement: we measure the polygon (Figure <a href="discover-pi.html#fig:fig2">1.2</a>), its circumference and area, and these two numbers can approximate the circumference and area of the circle, respectively, if the number of polygon sides is getting huge. We implement the above ideas in the R code below.
+<strong>Step 2</strong> is more tricky, however, we can simply do measurement: We measure the polygon (Figure <a href="discover-pi.html#fig:fig2">1.2</a>), its circumference and area, and these two numbers can approximate the circumference and area of the circle, respectively, if the number of polygon sides is getting huge. We implement the above ideas in the R code below.
 <div class="figure" style="text-align: center"><span id="fig:fig2"></span>
 <img src="figures/polygon-circle.png" alt="An illustration: using a polygon to approximate a circle."  />
 <p class="caption">
@@ -183,7 +183,7 @@ Area = \sqrt{s(s-a)(s-b)(s-c)},
 </div>
 <div id="r-code" class="section level2">
 <h2><span class="header-section-number">1.3</span> R code</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NO_of_points &lt;-<span class="st"> </span><span class="dv">10000</span> 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NO_of_points &lt;-<span class="st"> </span><span class="dv">10000</span>
 r &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># radius of circle</span>
 x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span>r, r, <span class="dt">length.out =</span> NO_of_points) <span class="co"># x-coordinates</span>
 y &lt;-<span class="st"> </span><span class="kw">sqrt</span>(r<span class="op">**</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span>x<span class="op">**</span><span class="dv">2</span>) <span class="co"># y-coordinates</span>

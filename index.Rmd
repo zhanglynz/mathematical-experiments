@@ -77,7 +77,7 @@ $$
 $$
 as well.
 
-**Step 2** is more tricky, however, we  can simply do measurement: we measure the polygon (Figure \@ref(fig:fig2)), its circumference and area, and these two numbers can approximate the circumference and area of the circle, respectively, if the number of polygon sides is getting huge. We implement the above ideas in the R code below. 
+**Step 2** is more tricky, however, we  can simply do measurement: We measure the polygon (Figure \@ref(fig:fig2)), its circumference and area, and these two numbers can approximate the circumference and area of the circle, respectively, if the number of polygon sides is getting huge. We implement the above ideas in the R code below. 
 ```{r, fig2, echo=FALSE, fig.align = 'center', fig.cap="An illustration: using a polygon to approximate a circle."}
 knitr::include_graphics("figures/polygon-circle.png")
 ```

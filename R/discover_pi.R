@@ -1,4 +1,4 @@
-NO_of_points <- 10000 
+NO_of_points <- 10000
 r <- 10 # radius of circle
 x <- seq(-r, r, length.out = NO_of_points) # x-coordinates
 y <- sqrt(r**2 - x**2) # y-coordinates
